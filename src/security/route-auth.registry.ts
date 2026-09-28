@@ -93,17 +93,17 @@ export const ROUTE_AUTH_REGISTRY: RouteAuthEntry[] = [
   { method: "DELETE", path: "/api/notifications/:id", auth: RouteAuthLevel.AUTHENTICATED },
   { method: "DELETE", path: "/api/notifications", auth: RouteAuthLevel.AUTHENTICATED },
 
-  // Admin — each route carries the specific permission from the RBAC matrix.
-  { method: "GET", path: "/api/admin/metrics/rate-limits", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.METRICS_READ },
-  { method: "POST", path: "/api/admin/metrics/rate-limits/clear", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.METRICS_WRITE },
-  { method: "GET", path: "/api/admin/metrics/rate-limit-summary", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.METRICS_READ },
-  { method: "GET", path: "/api/admin/metrics/payout-reconciliation", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.PAYOUT_RECONCILIATION_READ },
-  { method: "GET", path: "/api/admin/metrics/metrics", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.METRICS_READ, notes: "Prometheus scrape; also accepts METRICS_SCRAPE_TOKEN" },
-  { method: "GET", path: "/api/admin/cors-diagnostics", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.CORS_DIAGNOSTICS_READ },
-  { method: "GET", path: "/api/admin/dead-letter", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.DLQ_READ },
-  { method: "POST", path: "/api/admin/dead-letter/retry-all", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.DLQ_REPLAY },
-  { method: "POST", path: "/api/admin/dead-letter/:id/retry", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.DLQ_REPLAY },
-  { method: "GET", path: "/api/admin/bet-audit", auth: RouteAuthLevel.ADMIN, permission: AdminPermission.BET_AUDIT_READ },
+  // Admin
+  { method: "GET", path: "/api/admin/metrics/rate-limits", auth: RouteAuthLevel.ADMIN },
+  { method: "POST", path: "/api/admin/metrics/rate-limits/clear", auth: RouteAuthLevel.ADMIN },
+  { method: "GET", path: "/api/admin/metrics/metrics", auth: RouteAuthLevel.ADMIN, notes: "Prometheus scrape; admin JWT or METRICS_SCRAPE_TOKEN" },
+  { method: "GET", path: "/api/admin/metrics/payout-reconciliation", auth: RouteAuthLevel.ADMIN },
+  { method: "GET", path: "/api/admin/metrics/rate-limit-summary", auth: RouteAuthLevel.ADMIN },
+  { method: "GET", path: "/api/admin/cors-diagnostics", auth: RouteAuthLevel.ADMIN },
+   { method: "GET", path: "/api/admin/dead-letter", auth: RouteAuthLevel.ADMIN },
+   { method: "POST", path: "/api/admin/dead-letter/retry-all", auth: RouteAuthLevel.ADMIN },
+   { method: "POST", path: "/api/admin/dead-letter/:id/retry", auth: RouteAuthLevel.ADMIN },
+   { method: "GET", path: "/api/admin/bet-audit", auth: RouteAuthLevel.ADMIN },
 
   // System / misc API
   { method: "GET", path: "/api/prices", auth: RouteAuthLevel.PUBLIC, notes: "Multi-asset BTC/ETH/XLM ticker (not an alias of /api/price)" },
